@@ -1,0 +1,78 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d864eb50d21e1444b26c51b45fdc975, type: 3}
+  m_Name: Yuri_Sakamoto_Cascading
+  m_EditorClassIdentifier: 
+  name: Yuri (James) Sakamoto
+  npcDialogue:
+  - InnerString:
+    - 'Welcome! Anything you want to know from me?
+
+      A(Press 1)
+
+      B(Press
+      2)
+
+      C(Press 3)
+
+      D(Press 4)
+
+'
+  - InnerString:
+    - A1 TEST (Press Y for yes, N for No)
+    - A2 TEST (Press Y for yes, N for No)
+    - A3 TEST (Press Y for yes, N for No)
+    - A4 TEST (Press Y for yes, N for No)
+    - A5 TEST (Press Y for yes, N for No)
+  - InnerString:
+    - B1 TEST (Press Y for yes, N for No)
+    - B2 TEST (Press Y for yes, N for No)
+    - B3 TEST (Press Y for yes, N for No)
+    - B4 TEST (Press Y for yes, N for No)
+    - B5 TEST (Press Y for yes, N for No)
+  - InnerString:
+    - C1 TEST (Press Y for yes, N for No)
+    - C2 TEST (Press Y for yes, N for No)
+    - C3 TEST (Press Y for yes, N for No)
+    - C4 TEST (Press Y for yes, N for No)
+    - C5 TEST (Press Y for yes, N for No)
+  - InnerString:
+    - D1 TEST (Press Y for yes, N for No)
+    - D2 TEST (Press Y for yes, N for No)
+    - D3 TEST (Press Y for yes, N for No)
+    - D4 TEST (Press Y for yes, N for No)
+    - D5 TEST (Press Y for yes, N for No)
+  - InnerString: []
+  playerDialogue:
+  - InnerString:
+    - "Nice to meet you, James. I\u2019m (player_name)- can I ask you a few questions
+      about the project?"
+    - "Well, that\u2019s good to know. We\u2019ll keep in touch, I presume."
+    - "\u2026"
+  - InnerString:
+    - (You notice that he appears a tad nervous and attempt to calm him down)
+    - Thank you- that means a lot to me. Say, what do you do on the team?
+    - (Walk away)
+  - InnerString:
+    - "You\u2019re an electrician? Well, I\u2019m certainly glad to hear that- circuits
+      do get rather confusing if you look at them for long enough. I sure couldn\u2019t
+      do it."
+    - "Wires\u2026 So you\u2019re an electrician, right? Was it hard to study to
+      become one? I\u2019ve always wanted to learn\u2026"
+    - (Walk away)
+  - InnerString:
+    - Exactly! One should never give up on their dreams! That is what makes us who
+      we are!
+    - I agree- being vigilant is always a good practice to have within the workplace.
+    - (Walk away)
+  score: 0
+  isDoneTalking: 0
