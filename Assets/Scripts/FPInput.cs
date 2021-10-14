@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System;
+using System.IO;
 using System.Collections;
+using System.Collections.Generic;
 using Gamekit3D;
 
 
@@ -19,6 +21,12 @@ public class FPInput : MonoBehaviour
     protected bool m_Pause;
     protected bool m_ExternalInputBlocked;
 
+    public double Totalscore = 0;
+    public List<double> branchscore;
+    public string playername;
+ 
+
+
     public bool Pause
     {
         get { return m_Pause; }
@@ -30,6 +38,11 @@ public class FPInput : MonoBehaviour
             s_Instance = this;
         else if (s_Instance != this)
             throw new UnityException("There cannot be more than one FPInput script.  The instances are " + s_Instance.name + " and " + name + ".");
+
+        LoadName();
+        
+    
+    
     }
 
 
@@ -52,5 +65,30 @@ public class FPInput : MonoBehaviour
     public void GainControl()
     {
         m_ExternalInputBlocked = false;
+    }
+
+    public void InitializeScore(int size)
+    {
+        Totalscore = 0;
+        for (int i = 0; i < size; i++)
+        {
+            branchscore.Add(0);
+        }
+    }
+
+    void LoadName()
+    {
+        using (var reader = new StreamReader("data/data.csv"))
+        {
+            playername = reader.ReadLine();
+        }
+    }
+
+
+
+    public void IncScore(int index, double addscore)
+    {
+        Totalscore = Totalscore + addscore;
+        branchscore[index] = branchscore[index] + addscore;
     }
 }

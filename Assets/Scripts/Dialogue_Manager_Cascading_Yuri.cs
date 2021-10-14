@@ -21,10 +21,13 @@ public class Dialogue_Manager_Cascading_Yuri : MonoBehaviour
 
     public GameObject player;       //anchors
     public GameObject dialogueUI;   //
+    FPInput newplayer;
 
     public Text npcName;            //
     public Text npcDialogueBox;     //
     public Text playerResponse;     //
+
+    public List<bool> branchfinished;
 
 
     // Start is called before the first frame update
@@ -42,230 +45,15 @@ public class Dialogue_Manager_Cascading_Yuri : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.E) && isTalking == false && npc.isDoneTalking == false)
             {
+                newplayer = player.GetComponent<FPInput>();
+                newplayer.InitializeScore(4);
                 StartConversation();
             }
             MainDialogue();
+
             Debug.Log("Finished");
         }
     }
-
-    
-    //private void OnMouseOver() //triggers when you mouse over the object
-   // {
-     //   npcResponseIndex = npc.score; //set index for npc responses before any text is drawn to the screen
-
-        //only want the method to trigger if you are close enough to the NPC
-       // distance = Vector3.Distance(player.transform.position, this.transform.position); //distance between the player and NPC
-       // if (distance <= 4f)
-       // {
-            //scroll through responses via the scroll wheel
-            /*
-            if (Input.GetAxis("Mouse ScrollWheel") < 0f)
-            {
-                //find where to get responses from with array
-
-                curResponseTracker++;
-                if (curResponseTracker >= npc.playerDialogue[npcResponseIndex].Length() - 1)
-                {
-                    curResponseTracker = npc.playerDialogue[npcResponseIndex].Length() - 1; //making it so you can't scroll past all valid responses
-                }
-            }
-
-            else if (Input.GetAxis("Mouse ScrollWheel") > 0f)
-            {
-                curResponseTracker--;
-                if (curResponseTracker < 0)
-                {
-                    curResponseTracker = 0; //making it so you can't scroll past all valid responses
-                }
-            } */
-
-
-            //trigger dialogue is on click (done with GetMouseButtonDown(0)
-            //can also be done with keys using Input.GetKeyDown(KeyCode.E) --> can substitute with anything else
-        //    if (Input.GetKeyDown(KeyCode.E) && isTalking == false && npc.isDoneTalking == false)
-         //   {
-           //     CreateDialogue();
-         //       StartConversation();
-         //   }
-
-
-
-
-
-            /*
-                        ///////////////////MAIN CONVERSATION DRIVER CODE////////////////////////////////////
-                        //perhaps some sort of "while still isTalking"?
-
-                        //dialogue option 1
-                        if (npcResponseIndex == 0)
-                        {
-                            //dialogue option 1, response A- Correct
-                            if (curResponseTracker == 0 && npc.playerDialogue[npcResponseIndex].Length() >= 0)
-                            {
-                                playerResponse.text = npc.playerDialogue[0].InnerString[0]; //set response to the right one
-                                //if the player presses return on a highlighted option, select that option
-                                if (Input.GetKeyDown(KeyCode.Return))
-                                {
-                                    npc.score++;
-                                    npcDialogueBox.text = npc.npcDialogue[1]; //correct answer, so moves on
-                                }
-                            }
-
-                            //dialogue option 1, response B- Incorrect
-                            else if (curResponseTracker == 1 && npc.playerDialogue[npcResponseIndex].Length() >= 1)
-                            {
-                                playerResponse.text = npc.playerDialogue[0].InnerString[1]; //set response to the right one
-                                //if the player presses return on a highlighted option, select that option
-                                if (Input.GetKeyDown(KeyCode.Return))
-                                {
-                                    EndDialogue();
-                                }
-                            }
-
-                            //dialogue option 1, response C- Incorrect
-                            else if (curResponseTracker == 2 && npc.playerDialogue[npcResponseIndex].Length() >= 2)
-                            {
-                                playerResponse.text = npc.playerDialogue[0].InnerString[2]; //set response to the right one
-                                //if the player presses return on a highlighted option, select that option
-                                if (Input.GetKeyDown(KeyCode.Return))
-                                {
-                                    EndDialogue();
-                                }
-                            }
-
-                        } //end dialogue option 1
-
-
-                        //dialogue option 2
-                        else if (npcResponseIndex == 1)
-                        {
-                            //dialogue option 2, response A- Correct
-                            if (curResponseTracker == 0 && npc.playerDialogue[npcResponseIndex].Length() >= 0)
-                            {
-                                playerResponse.text = npc.playerDialogue[1].InnerString[0]; //set response to the right one
-                                //if the player presses return on a highlighted option, select that option
-                                if (Input.GetKeyDown(KeyCode.Return))
-                                {
-                                    npc.score++;
-                                    npcDialogueBox.text = npc.npcDialogue[2]; //correct answer, so moves on
-                                }
-                            }
-
-                            //dialogue option 2, response B- Correct
-                            else if (curResponseTracker == 1 && npc.playerDialogue[npcResponseIndex].Length() >= 1)
-                            {
-                                playerResponse.text = npc.playerDialogue[1].InnerString[1]; //set response to the right one
-                                //if the player presses return on a highlighted option, select that option
-                                if (Input.GetKeyDown(KeyCode.Return))
-                                {
-                                    npc.score++;
-                                    npcDialogueBox.text = npc.npcDialogue[2]; //correct answer, so moves on
-                                }
-                            }
-
-                            //dialogue option 2, response C- Incorrect
-                            else if (curResponseTracker == 2 && npc.playerDialogue[npcResponseIndex].Length() >= 2)
-                            {
-                                playerResponse.text = npc.playerDialogue[1].InnerString[2]; //set response to the right one
-                                //if the player presses return on a highlighted option, select that option
-                                if (Input.GetKeyDown(KeyCode.Return))
-                                {
-                                    EndDialogue();
-                                }
-                            }
-
-                        } //end dialogue option 2
-
-                        //dialogue option 3
-                        else if (npcResponseIndex == 2)
-                        {
-                            //dialogue option 3, response A- Correct
-                            if (curResponseTracker == 0 && npc.playerDialogue[npcResponseIndex].Length() >= 0)
-                            {
-                                playerResponse.text = npc.playerDialogue[2].InnerString[0]; //set response to the right one
-                                //if the player presses return on a highlighted option, select that option
-                                if (Input.GetKeyDown(KeyCode.Return))
-                                {
-                                    npc.score++;
-                                    npcDialogueBox.text = npc.npcDialogue[3]; //correct answer, so moves on
-                                }
-                            }
-
-                            //dialogue option 3, response B- Correct
-                            else if (curResponseTracker == 1 && npc.playerDialogue[npcResponseIndex].Length() >= 1)
-                            {
-                                playerResponse.text = npc.playerDialogue[2].InnerString[1]; //set response to the right one
-                                //if the player presses return on a highlighted option, select that option
-                                if (Input.GetKeyDown(KeyCode.Return))
-                                {
-                                    npc.score++;
-                                    npcDialogueBox.text = npc.npcDialogue[3]; //correct answer, so moves on
-                                }
-                            }
-
-                            //dialogue option 3, response C- Incorrect
-                            else if (curResponseTracker == 2 && npc.playerDialogue[npcResponseIndex].Length() >= 2)
-                            {
-                                playerResponse.text = npc.playerDialogue[2].InnerString[2]; //set response to the right one
-                                //if the player presses return on a highlighted option, select that option
-                                if (Input.GetKeyDown(KeyCode.Return))
-                                {
-                                    EndDialogue();
-                                }
-                            }
-
-                        } //end dialogue option 3
-
-                        //dialogue option 4
-                        else if (npcResponseIndex == 3)
-                        {
-                            //dialogue option 4, response A- Correct
-                            if (curResponseTracker == 0 && npc.playerDialogue[npcResponseIndex].Length() >= 0)
-                            {
-                                playerResponse.text = npc.playerDialogue[3].InnerString[0]; //set response to the right one
-                                //if the player presses return on a highlighted option, select that option
-                                if (Input.GetKeyDown(KeyCode.Return))
-                                {
-                                    npc.score++;
-                                    dialogueOptionFive();
-                                }
-                            }
-
-                            //dialogue option 4, response B- Correct
-                            else if (curResponseTracker == 1 && npc.playerDialogue[npcResponseIndex].Length() >= 1)
-                            {
-                                playerResponse.text = npc.playerDialogue[3].InnerString[1]; //set response to the right one
-                                //if the player presses return on a highlighted option, select that option
-                                if (Input.GetKeyDown(KeyCode.Return))
-                                {
-                                    npc.score++;
-                                    dialogueOptionFive();
-                                }
-                            }
-
-                            //dialogue option 4, response C- Incorrect
-                            else if (curResponseTracker == 2 && npc.playerDialogue[npcResponseIndex].Length() >= 2)
-                            {
-                                playerResponse.text = npc.playerDialogue[3].InnerString[2]; //set response to the right one
-                                //if the player presses return on a highlighted option, select that option
-                                if (Input.GetKeyDown(KeyCode.Return))
-                                {
-                                    EndDialogue();
-                                }
-                            }
-
-                        } //end dialogue option 4
-
-                        ///////////////////MAIN CONVERSATION DRIVER CODE////////////////////////////////////
-
-
-
-            */
-     //   }
-   // } //end method
-    
-
 
 
     void StartConversation()
@@ -275,8 +63,19 @@ public class Dialogue_Manager_Cascading_Yuri : MonoBehaviour
         curResponseTracker = 0; //start the conversation with general introductory response
         dialogueUI.SetActive(true);
         npcName.text = npc.name;
-        npcDialogueBox.text = npc.npcDialogue[0].InnerString[0]; //set it to greeting initial
 
+        string tempstr = npc.npcDialogue[0].InnerString[0];
+
+        for(int i = 0; i < branchfinished.Count; i++)
+        {
+            if (!branchfinished[i])
+                tempstr = tempstr + npc.npcDialogue[0].InnerString[i + 1];
+        }
+        tempstr = tempstr + "I'll need to go. See u next time! (Press N)\n";
+
+
+        npcDialogueBox.text = tempstr;
+        playerResponse.text = "";
     }
 
 
@@ -285,27 +84,51 @@ public class Dialogue_Manager_Cascading_Yuri : MonoBehaviour
     {
         if (isTalking && CurrentGroup == 0)
         {
-            npcDialogueBox.text = npc.npcDialogue[0].InnerString[0];
-            if (Input.GetKeyDown(KeyCode.Alpha1))
+            string tempstr = npc.npcDialogue[0].InnerString[0];
+
+            for (int i = 0; i < branchfinished.Count; i++)
+            {
+                if (!branchfinished[i])
+                    tempstr = tempstr + npc.npcDialogue[0].InnerString[i + 1];
+            }
+            tempstr = tempstr + "I'll need to go. See u next time! (Press N)\n";
+
+            npcDialogueBox.text = tempstr;
+
+            if (Input.GetKeyDown(KeyCode.Alpha1) && branchfinished[0] == false)
             {
                 CurrentGroup = 1;
                 CurrentItem = 0;
+                branchfinished[0] = true;
+                newplayer.IncScore(CurrentGroup - 1, 0.2);
+                Debug.Log("this is " + newplayer.Totalscore);
             }
-            else if (Input.GetKeyDown(KeyCode.Alpha2))
+            else if (Input.GetKeyDown(KeyCode.Alpha2) && branchfinished[1] == false)
             {
                 CurrentGroup = 2;
                 CurrentItem = 0;
+                branchfinished[1] = true;
+                newplayer.IncScore(CurrentGroup - 1, 0.2);
             }
-            else if (Input.GetKeyDown(KeyCode.Alpha3))
+            else if (Input.GetKeyDown(KeyCode.Alpha3) && branchfinished[2] == false)
             {
                 CurrentGroup = 3;
                 CurrentItem = 0;
+                branchfinished[2] = true;
+                newplayer.IncScore(CurrentGroup - 1, 0.2);
             }
-            else if (Input.GetKeyDown(KeyCode.Alpha4))
+            else if (Input.GetKeyDown(KeyCode.Alpha4) && branchfinished[3] == false)
             {
                 CurrentGroup = 4;
                 CurrentItem = 0;
+                branchfinished[3] = true;
+                newplayer.IncScore(CurrentGroup - 1, 0.2);
             }
+            else if (Input.GetKeyDown(KeyCode.N))
+            {
+                EndDialogue();
+            }
+
             else
             {
                 Debug.Log("Wrong Input");
@@ -326,18 +149,21 @@ public class Dialogue_Manager_Cascading_Yuri : MonoBehaviour
 
     void SubDialogue()
     {
-
         if (CurrentItem != MaxnumItem)
         {
             npcDialogueBox.text = npc.npcDialogue[CurrentGroup].InnerString[CurrentItem];
+            playerResponse.text = "Oh! I'd like to know more about it! (Press Y)\n"
+            + "I've got everything I want, thank you! (Press N)";
             if (Input.GetKeyDown(KeyCode.Y))
             {
+                newplayer.IncScore(CurrentGroup - 1, 0.2);
                 CurrentItem++;
             }
             else if (Input.GetKeyDown(KeyCode.N))
             {
                 CurrentItem = 0;
                 CurrentGroup = 0;
+                playerResponse.text = "";
             }
             else
             {
@@ -347,14 +173,16 @@ public class Dialogue_Manager_Cascading_Yuri : MonoBehaviour
         }
         else
         {
-            npcDialogueBox.text = "Thank you for your response.\n" +
-                "Do You want to know more about me? (Press Y for yes and N for No)";
+            playerResponse.text = "";
+            npcDialogueBox.text = "Do You want to know more about me? (Press Y for yes and N for No)";
             if (Input.GetKeyDown(KeyCode.N))
             {
+                newplayer.IncScore(CurrentGroup - 1, -0.2);
                 EndDialogue();
             }
             else if (Input.GetKeyDown(KeyCode.Y))
             {
+                newplayer.IncScore(CurrentGroup - 1, -0.2);
                 CurrentItem = 0;
                 CurrentGroup = 0;
             }
@@ -374,7 +202,7 @@ public class Dialogue_Manager_Cascading_Yuri : MonoBehaviour
         isTalking = false;            //end current dialogue
         npc.isDoneTalking = true;     //make sure this NPC cannot be talked to again
         dialogueUI.SetActive(false);  //end current dialogue
-        npc.score = npcResponseIndex; //assign score based on dialogue progression
+        PrintResult();
     }
 
     void OnApplicationQuit()
@@ -384,15 +212,6 @@ public class Dialogue_Manager_Cascading_Yuri : MonoBehaviour
         npc.score = 0;
     }
 
- /*
-    void dialogueOptionFive()
-    {
-            npcDialogueBox.text = npc.npcDialogue[4];
-            playerResponse.text = "(Click to end dialogue)"; //hides this
-        //final dialogue lasts for 4 seconds (average time to read it) at least and then can be clicked to exit
-        Invoke("EndDialogue", 4);
-    }
- */
 
     void CreateDialogue()
     {
@@ -400,25 +219,32 @@ public class Dialogue_Manager_Cascading_Yuri : MonoBehaviour
         {
             npc.npcDialogue[i].InnerString.Clear();
         }
-        npc.npcDialogue[0].InnerString.Add(
-            "Welcome! Anything you want to know from me?\n" +
-            "A(Press 1)\n" +
-            "B(Press 2)\n" +
-            "C(Press 3)\n" +
-            "D(Press 4)\n"
-        );
 
-        using (var reader = new StreamReader("UnbentTest.csv"))
+        npc.npcDialogue[0].InnerString.Add("Anything you want to know from me?\n\n");
+        
+        npc.npcDialogue[0].InnerString.Add("My Educational Background(Press 1)\n");
+        branchfinished.Add(false);
+
+        npc.npcDialogue[0].InnerString.Add("My Family(Press 2)\n");
+        branchfinished.Add(false);
+
+        npc.npcDialogue[0].InnerString.Add("Job Specific(Press 3)\n");
+        branchfinished.Add(false);
+
+        npc.npcDialogue[0].InnerString.Add("The Culture(Press 4)\n");
+        branchfinished.Add(false);
+
+
+        using (var reader = new StreamReader("data/input.csv"))
         {
             while (!reader.EndOfStream)
             {
                 var line = reader.ReadLine();
-                var values = line.Split(',');
-                var newvalue = values[1] + " (Press Y for yes, N for No)";
+                var values = line.Split(';');
+                var newvalue = values[1];
                 if (values[0][0] == 'A')
                 {
                     npc.npcDialogue[1].InnerString.Add(newvalue);
-                    Debug.Log(npc.npcDialogue[1].InnerString[0]);
                 }
                 else if(values[0][0] == 'B'){
                     npc.npcDialogue[2].InnerString.Add(newvalue);
@@ -439,9 +265,25 @@ public class Dialogue_Manager_Cascading_Yuri : MonoBehaviour
         }
         CurrentGroup = 0;
         CurrentItem = 0;
-        Debug.Log(npc.npcDialogue[1].InnerString[0]);
     }
 
+
+    void PrintResult()
+    {
+        if(newplayer.Totalscore > 0)
+        {
+            char initialchar = 'A';
+            using (var writer = new StreamWriter("data/output.csv"))
+            {
+                writer.WriteLine(newplayer.playername);
+                writer.WriteLine(newplayer.Totalscore);
+                for (int i = 0; i < newplayer.branchscore.Count; i++)
+                {
+                    writer.WriteLine((char)(initialchar + i) + "," + newplayer.branchscore[i]);
+                }
+            }
+        }
+    }
 
 
 } //end class
