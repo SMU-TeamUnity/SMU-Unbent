@@ -15,42 +15,90 @@ MonoBehaviour:
   name: John Anderson
   npcDialogue:
   - InnerString:
-    - 'Welcome! Anything you want to know from me?
+    - 'Anything you want to know from me?
 
-      A(Press 1)
 
-      B(Press
-      2)
+'
+    - 'My Educational Background(Press 1)
 
-      C(Press 3)
+'
+    - 'My Family(Press 2)
 
-      D(Press 4)
+'
+    - 'Job Specific(Press 3)
+
+'
+    - 'The Culture(Press 4)
 
 '
   - InnerString:
-    - A1 TEST (Press Y for yes, N for No)
-    - A2 TEST (Press Y for yes, N for No)
-    - A3 TEST (Press Y for yes, N for No)
-    - A4 TEST (Press Y for yes, N for No)
-    - A5 TEST (Press Y for yes, N for No)
+    - Oh, that was a distant memory. I graduated from Duke University many years
+      ago. ,,,,
+    - I was lucky to graduate in four years, there was this one professor Dr. Rob
+      whose classes were brutal.,,,,
+    - The hardest class by far was the micro-economics course I was so happy when
+      I got through it with a B. I almost felt like the professor had it out for
+      me. ,,,,,
+    - Since graduating I have started to think about going back for my MBA but I
+      am not sure if it is the best bet for me yet. I think it might be tough being
+      a non-traditional student and going back to school with a family. ,,,,,
+    - And I want to continue my education but the balancing of being a non-traditional
+      with school is just tough. I would have to take a business analytics course
+      and I was never really good at math when I took micro-economics.,,,,,
   - InnerString:
-    - B1 TEST (Press Y for yes, N for No)
-    - B2 TEST (Press Y for yes, N for No)
-    - B3 TEST (Press Y for yes, N for No)
-    - B4 TEST (Press Y for yes, N for No)
-    - B5 TEST (Press Y for yes, N for No)
+    - I met my partner Juan in Duke at a coffee shop around the corner from where
+      we went to school.,,,,,
+    - I can speak all day about Juan and our daugher. My daughter is going to school
+      for the first time next week. Honestly, I am a little nervous about it.,,,,
+    - We will have been maried for 3 years now in December and it was one of the
+      toughest challenges trying to get Tonie our daugher. You wouldn't believe what
+      we had to go through. ,,,,,
+    - The paperwork for a couple like us and the stigma just for us to adopt was
+      tough. Many assumptions of course were made about our abilities to raise a
+      child. It was even tough with our family, some of which who didn't want to
+      see us. I hope my whole family can accept us for who we are. You know?,,,,
+    - A family trip might help the family. It also might help the family learn to
+      accept us and get to know Tonie a bit more. I guess you could say that growing
+      up was rough, but one day I know my parents will come around. My parents were
+      very structured in their ways and how they raised me and my sister Cassie.
+      She has a husband and two kids of her own in California, so a trip to Disney
+      Land would be perfect. ,,,
   - InnerString:
-    - C1 TEST (Press Y for yes, N for No)
-    - C2 TEST (Press Y for yes, N for No)
-    - C3 TEST (Press Y for yes, N for No)
-    - C4 TEST (Press Y for yes, N for No)
-    - C5 TEST (Press Y for yes, N for No)
+    - I work as a middle manager at the Firm and it is my 8th year in the company.,,,,,
+    - My typical day involves coordinating with other employees to see what they
+      need to get their jobs done, talking with the higher ups to give estimates
+      on schedule and put in requests and all around just working to keep things
+      running smoothly.,,,,
+    - I got promoted three years ago after working as an analayst for a few years.
+      However, ever since they hired Sarah it seems like the CEO has been looking
+      to her to drive all our company decisions. So who knows how much longer I will
+      be around. But you know how it is.
+    - Of course, I need to report the department's progress once a week to my supervisor
+      and that is now Sarah. I feel like she doesn't really see my potential and
+      what I can bring to the table. Last week I spent five hours analyzing some
+      of the data for a report. She didn't even say thank you when I handed her the
+      report. ,,,,
+    - Sometimes I'm so busy that I'm thinking I really need an assistant hahah. But
+      then, now that I am feeling stifled, I am starting to think that I might just
+      leave the firm and go somwhere where I feel valued. ,,,
   - InnerString:
-    - D1 TEST (Press Y for yes, N for No)
-    - D2 TEST (Press Y for yes, N for No)
-    - D3 TEST (Press Y for yes, N for No)
-    - D4 TEST (Press Y for yes, N for No)
-    - D5 TEST (Press Y for yes, N for No)
+    - I came to the company 8 years ago and I don't remember ever having issues or
+      problems fitting in with the company.,,,,,
+    - Obviously it was very different between now and then, we were a very small
+      group at that point and now the company has grown a lot in size.,,,,
+    - One of the things we try to do is monthly team lunches so we can all get a
+      chance to connect outside of a work enviroment. I stopped going to the lunches
+      though, mainly because of how I was being treated by my supervisor. Really
+      it was just a lack of appreciation for what effort I was putting in.
+    - My supervisor at one point told me they really had no care for what I was putting
+      forward. I have asked about gaps and where I can improve, but I have yet to
+      see any type of 360 degree evaluaiton of my work. You would think around here
+      that they would start assessing the company enviroment a bit more and looking
+      at evaluation of our management, but nope.,,,
+    - As a middle manager,I will do anything to make sure my team members fit in
+      the company smoothly, so let me know where you need help. I will try to train
+      you for as long as I am around, but after that, I can't promise anything. It
+      is a dog eat dog world out there. Well, you will see.
   - InnerString: []
   playerDialogue:
   - InnerString:

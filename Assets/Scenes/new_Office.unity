@@ -1272,7 +1272,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerControllerInputBlocked: 0
   Totalscore: 0
-  branchscore: []
   playername: James Zhai
 --- !u!1001 &49447745
 PrefabInstance:
@@ -7968,6 +7967,8 @@ MonoBehaviour:
   npcName: {fileID: 99444765}
   npcDialogueBox: {fileID: 1846214165}
   playerResponse: {fileID: 195624650}
+  npcNum: 1
+  numNPCs: 2
   branchfinished: 
 --- !u!1 &334033572
 GameObject:
@@ -21054,6 +21055,7 @@ GameObject:
   - component: {fileID: 929863761}
   - component: {fileID: 929863760}
   - component: {fileID: 929863759}
+  - component: {fileID: 929863762}
   m_Layer: 0
   m_Name: BusinessWoman(Clone)
   m_TagString: Untagged
@@ -21174,6 +21176,27 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: -1122.448, z: 0}
+--- !u!114 &929863762
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 929863758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 713a9b05cf995ad41b743f066652bea2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  npc: {fileID: 11400000, guid: afa5c64af6a854ac287ce942356c74f2, type: 2}
+  player: {fileID: 47072602}
+  dialogueUI: {fileID: 1598591180}
+  npcName: {fileID: 99444765}
+  npcDialogueBox: {fileID: 1846214165}
+  playerResponse: {fileID: 195624650}
+  npcNum: 2
+  numNPCs: 2
+  branchfinished: 
 --- !u!1 &935144786
 GameObject:
   m_ObjectHideFlags: 0

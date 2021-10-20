@@ -12,8 +12,71 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d864eb50d21e1444b26c51b45fdc975, type: 3}
   m_Name: NPC file Cascading
   m_EditorClassIdentifier: 
-  name: 
-  npcDialogue: []
-  playerDialogue: []
+  name: Sarah Jones
+  npcDialogue:
+  - InnerString:
+    - 'Anything you want to know from me?
+
+
+'
+    - 'My Educational Background(Press 1)
+
+'
+    - 'My Family(Press 2)
+
+'
+    - 'Job Specific(Press 3)
+
+'
+    - 'The Culture(Press 4)
+
+'
+  - InnerString:
+    - I just got my MBA from Harvard last year
+    - It was incredibly challenging ballancing a rigorus course workload with a full
+      time job.
+    - I decided I wanted to go back to school and further my education as I saw it
+      as one of the best ways to better myself and boost my career,,,,,
+    - I really struggled with my Accounting courses as some of the math was a little
+      overwhelming ,,,,,
+    - It was a very difficult challenge but looking back on it is really rewarding,,,,,
+  - InnerString:
+    - I'm happy I moved back out here where I am close to my family again.,,,,,
+    - My parents have a house in the next town over, so I go out and visit them fairly
+      often
+    - Its also nice as my boyfriend's family is not too far away either so we visit
+      them but less regularly,,,,,
+    - My boyfriend, Steve, and I have been dating for 2 years next month, we met
+      while studying at Harvard. , ,,,,
+    - We moved in together about 6 months ago and its been going great,, so a trip
+      to Disney Land would be perfect. ,,,
+  - InnerString:
+    - I just got hired 2 years ago to be the Vice President of Finance.,,,,,
+    - My daily work is pretty much sending emails and reviewing files, and coordinating
+      larger scale projects
+    - It is a very challenging job but it is really rewarding when I see everything
+      come together,,,,,
+    - I work a lot with John, who has a strong work ethic
+    - I am hoping to soon get premoted again as I want to keep growing my career,,,,,
+  - InnerString:
+    - When I first got here it was a slightly slow start trying to learn the enviroment
+      but everyone was super supportive,,,,,
+    - The company has been growing a Iot in the past few years so there is always
+      something changing,,,,,
+    - Despite the rapid growth we are trying hard to stay connected as an organization
+      so we try to do non work related events at least once a month,,,,,
+    - My only complaint about the company as there is a disconnect with some of the
+      higher managment levels, I am trying to cover most of the gaps but some things
+      keep slipping through,,,,,
+    - In general this company has been a great place to work, and as a VP I am trying
+      too keep pushing it farther forward, if there is anything you need or that
+      I can do to help please let me or John know. ,,, but after that, I can't promise
+      anything. It is a dog eat dog world out there. Well, you will see.
+  - InnerString: []
+  playerDialogue:
+  - InnerString: []
+  - InnerString: []
+  - InnerString: []
+  - InnerString: []
   score: 0
   isDoneTalking: 0
