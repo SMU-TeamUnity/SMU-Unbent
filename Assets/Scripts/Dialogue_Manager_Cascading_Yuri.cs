@@ -26,6 +26,8 @@ public class Dialogue_Manager_Cascading_Yuri : MonoBehaviour
     public Text npcName;            //
     public Text npcDialogueBox;     //
     public Text playerResponse;     //
+    public int npcNum;
+    public int numNPCs;
 
     public List<bool> branchfinished;
 
@@ -35,6 +37,8 @@ public class Dialogue_Manager_Cascading_Yuri : MonoBehaviour
     {
         dialogueUI.SetActive(false); //want the UI to not be there at startup- only when talking
         CreateDialogue();
+        newplayer = player.GetComponent<FPInput>();
+        newplayer.InitializeScore(2,4);
     }
 
 
@@ -45,8 +49,7 @@ public class Dialogue_Manager_Cascading_Yuri : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.E) && isTalking == false && npc.isDoneTalking == false)
             {
-                newplayer = player.GetComponent<FPInput>();
-                newplayer.InitializeScore(4);
+                
                 StartConversation();
             }
             MainDialogue();
@@ -100,7 +103,7 @@ public class Dialogue_Manager_Cascading_Yuri : MonoBehaviour
                 CurrentGroup = 1;
                 CurrentItem = 0;
                 branchfinished[0] = true;
-                newplayer.IncScore(CurrentGroup - 1, 0.2);
+                newplayer.IncScore(npcNum,CurrentGroup - 1, 0.2);
                 Debug.Log("this is " + newplayer.Totalscore);
             }
             else if (Input.GetKeyDown(KeyCode.Alpha2) && branchfinished[1] == false)
@@ -108,21 +111,21 @@ public class Dialogue_Manager_Cascading_Yuri : MonoBehaviour
                 CurrentGroup = 2;
                 CurrentItem = 0;
                 branchfinished[1] = true;
-                newplayer.IncScore(CurrentGroup - 1, 0.2);
+                newplayer.IncScore(npcNum,CurrentGroup - 1, 0.2);
             }
             else if (Input.GetKeyDown(KeyCode.Alpha3) && branchfinished[2] == false)
             {
                 CurrentGroup = 3;
                 CurrentItem = 0;
                 branchfinished[2] = true;
-                newplayer.IncScore(CurrentGroup - 1, 0.2);
+                newplayer.IncScore(npcNum,CurrentGroup - 1, 0.2);
             }
             else if (Input.GetKeyDown(KeyCode.Alpha4) && branchfinished[3] == false)
             {
                 CurrentGroup = 4;
                 CurrentItem = 0;
                 branchfinished[3] = true;
-                newplayer.IncScore(CurrentGroup - 1, 0.2);
+                newplayer.IncScore(npcNum,CurrentGroup - 1, 0.2);
             }
             else if (Input.GetKeyDown(KeyCode.N))
             {
@@ -156,7 +159,7 @@ public class Dialogue_Manager_Cascading_Yuri : MonoBehaviour
             + "I've got everything I want, thank you! (Press N)";
             if (Input.GetKeyDown(KeyCode.Y))
             {
-                newplayer.IncScore(CurrentGroup - 1, 0.2);
+                newplayer.IncScore(npcNum,CurrentGroup - 1, 0.2);
                 CurrentItem++;
             }
             else if (Input.GetKeyDown(KeyCode.N))
@@ -177,12 +180,12 @@ public class Dialogue_Manager_Cascading_Yuri : MonoBehaviour
             npcDialogueBox.text = "Do You want to know more about me? (Press Y for yes and N for No)";
             if (Input.GetKeyDown(KeyCode.N))
             {
-                newplayer.IncScore(CurrentGroup - 1, -0.2);
+                newplayer.IncScore(npcNum,CurrentGroup - 1, -0.2);
                 EndDialogue();
             }
             else if (Input.GetKeyDown(KeyCode.Y))
             {
-                newplayer.IncScore(CurrentGroup - 1, -0.2);
+                newplayer.IncScore(npcNum,CurrentGroup - 1, -0.2);
                 CurrentItem = 0;
                 CurrentGroup = 0;
             }
@@ -235,13 +238,13 @@ public class Dialogue_Manager_Cascading_Yuri : MonoBehaviour
         branchfinished.Add(false);
 
 
-        using (var reader = new StreamReader("data/input.csv"))
+        using (var reader = new StreamReader("data/input2.csv"))
         {
             while (!reader.EndOfStream)
             {
                 var line = reader.ReadLine();
                 var values = line.Split(';');
-                var newvalue = values[1];
+                var newvalue = values[npcNum];
                 if (values[0][0] == 'A')
                 {
                     npc.npcDialogue[1].InnerString.Add(newvalue);
@@ -277,9 +280,17 @@ public class Dialogue_Manager_Cascading_Yuri : MonoBehaviour
             {
                 writer.WriteLine(newplayer.playername);
                 writer.WriteLine(newplayer.Totalscore);
-                for (int i = 0; i < newplayer.branchscore.Count; i++)
+                for (int i = 0; i < newplayer.branchscores.Count; i++)
                 {
-                    writer.WriteLine((char)(initialchar + i) + "," + newplayer.branchscore[i]);
+                	string line=(char)(initialchar + i)+",";
+                	for(int j=0; j<numNPCs;j++){
+                		line=line+ newplayer.branchscores[j][i];
+                		if(j+1<=numNPCs){
+                			line=line+",";
+                		}
+                	}
+
+                    writer.WriteLine(line);
                 }
             }
         }

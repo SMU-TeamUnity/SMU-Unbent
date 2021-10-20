@@ -22,7 +22,7 @@ public class FPInput : MonoBehaviour
     protected bool m_ExternalInputBlocked;
 
     public double Totalscore = 0;
-    public List<double> branchscore;
+    public List<List<double>> branchscores=new List<List<double>>();
     public string playername;
  
 
@@ -67,13 +67,20 @@ public class FPInput : MonoBehaviour
         m_ExternalInputBlocked = false;
     }
 
-    public void InitializeScore(int size)
+    public void InitializeScore(int NPCs, int size)
     {
         Totalscore = 0;
+        Debug.Log("NPCs"+NPCs);
+        for(int j=0;j<2;j++){
+        List<double> branch=new List<double>();
+        branchscores.Add(branch);}
+        for(int j=0;j<2;j++){
         for (int i = 0; i < size; i++)
         {
-            branchscore.Add(0);
+            branchscores[j].Add(0);
         }
+       
+    }
     }
 
     void LoadName()
@@ -86,9 +93,9 @@ public class FPInput : MonoBehaviour
 
 
 
-    public void IncScore(int index, double addscore)
+    public void IncScore(int npc, int index, double addscore)
     {
         Totalscore = Totalscore + addscore;
-        branchscore[index] = branchscore[index] + addscore;
+        branchscores[npc-1][index] = branchscores[npc-1][index] + addscore;
     }
 }
