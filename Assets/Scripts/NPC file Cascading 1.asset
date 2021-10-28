@@ -1,0 +1,65 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d864eb50d21e1444b26c51b45fdc975, type: 3}
+  m_Name: NPC file Cascading 1
+  m_EditorClassIdentifier: 
+  name: asset 3
+  npcDialogue:
+  - InnerString:
+    - 'Anything you want to know from me?
+
+
+'
+    - 'My Educational Background(Press 1)
+
+'
+    - 'My Family(Press 2)
+
+'
+    - 'Job Specific(Press 3)
+
+'
+    - 'The Culture(Press 4)
+
+'
+  - InnerString:
+    - testa1
+    - testa2
+    - testa3
+    - testa4
+    - testa5
+  - InnerString:
+    - 
+    - 
+    - testb3
+    - testb4
+    - testb5
+  - InnerString:
+    - testc1
+    - testc2
+    - testc3
+    - testc4
+    - testc5
+  - InnerString:
+    - testd1
+    - testd2
+    - testd3
+    - testd4
+    - testd5
+  - InnerString: []
+  playerDialogue:
+  - InnerString: []
+  - InnerString: []
+  - InnerString: []
+  - InnerString: []
+  score: 0
+  isDoneTalking: 0

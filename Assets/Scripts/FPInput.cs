@@ -71,10 +71,10 @@ public class FPInput : MonoBehaviour
     {
         Totalscore = 0;
         Debug.Log("NPCs"+NPCs);
-        for(int j=0;j<2;j++){
+        for(int j=0;j<3;j++){
         List<double> branch=new List<double>();
         branchscores.Add(branch);}
-        for(int j=0;j<2;j++){
+        for(int j=0;j<3;j++){
         for (int i = 0; i < size; i++)
         {
             branchscores[j].Add(0);

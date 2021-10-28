@@ -280,7 +280,7 @@ public class Dialogue_Manager_Cascading_Yuri : MonoBehaviour
             {
                 writer.WriteLine(newplayer.playername);
                 writer.WriteLine(newplayer.Totalscore);
-                for (int i = 0; i < newplayer.branchscores.Count; i++)
+                for (int i = 0; i < 4; i++)
                 {
                 	string line=(char)(initialchar + i)+",";
                 	for(int j=0; j<numNPCs;j++){

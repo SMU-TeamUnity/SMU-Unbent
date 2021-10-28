@@ -7968,7 +7968,7 @@ MonoBehaviour:
   npcDialogueBox: {fileID: 1846214165}
   playerResponse: {fileID: 195624650}
   npcNum: 1
-  numNPCs: 2
+  numNPCs: 3
   branchfinished: 
 --- !u!1 &334033572
 GameObject:
@@ -21195,7 +21195,7 @@ MonoBehaviour:
   npcDialogueBox: {fileID: 1846214165}
   playerResponse: {fileID: 195624650}
   npcNum: 2
-  numNPCs: 2
+  numNPCs: 3
   branchfinished: 
 --- !u!1 &935144786
 GameObject:
@@ -41980,6 +41980,7 @@ GameObject:
   - component: {fileID: 1954334081}
   - component: {fileID: 1954334080}
   - component: {fileID: 1954334079}
+  - component: {fileID: 1954334082}
   m_Layer: 0
   m_Name: BlueCollarGuy01(Clone)
   m_TagString: Untagged
@@ -42055,6 +42056,27 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 97.369, z: 0}
+--- !u!114 &1954334082
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1954334078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 713a9b05cf995ad41b743f066652bea2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  npc: {fileID: 11400000, guid: 6ed323852a43a42fca0d71fd091a1d30, type: 2}
+  player: {fileID: 47072602}
+  dialogueUI: {fileID: 1598591180}
+  npcName: {fileID: 99444765}
+  npcDialogueBox: {fileID: 1846214165}
+  playerResponse: {fileID: 195624650}
+  npcNum: 3
+  numNPCs: 3
+  branchfinished: 
 --- !u!1 &1958534675
 GameObject:
   m_ObjectHideFlags: 0
